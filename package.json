@@ -1,0 +1,79 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "TODS",
+    "tournament",
+    "tournaments",
+    "competition",
+    "tennis"
+  ],
+  "homepage": "https://github.com/CourtHive/tods-tournament-pdfs",
+  "bugs": {
+    "url": "https://github.com/CourtHive/tods-tournament-pdfs/issues",
+    "email": "support@CourtHive.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CourtHive/tods-tournament-pdfs"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "tods-tournament-pdfs",
+  "author": "Charles Allen",
+  "module": "dist/tods-tournament-pdfs.esm.js",
+  "devDependencies": {
+    "@babel/preset-typescript": "7.10.4",
+    "@types/jest": "26.0.14",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "docz": "2.3.1",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jest": "24.0.2",
+    "husky": "^4.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "size-limit": "^4.6.0",
+    "tsdx": "^0.14.0",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "pdfmake": "^0.1.68",
+    "tods-competition-factory": "^0.1.31"
+  }
+}
