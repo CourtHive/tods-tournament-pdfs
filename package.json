@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "pdfmake": "^0.1.68",
+    "roboto-fontface": "^0.10.0",
     "tods-competition-factory": "^0.1.31"
   }
 }

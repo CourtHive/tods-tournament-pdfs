@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { MakePDF } from '../example/MakePDF';
+import { MakePDF } from '../example/src/MakePDF';
 
 describe('it', () => {
   it('renders without crashing', () => {

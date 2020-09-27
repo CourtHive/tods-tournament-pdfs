@@ -13853,6 +13853,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+roboto-fontface@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/roboto-fontface/-/roboto-fontface-0.10.0.tgz#7eee40cfa18b1f7e4e605eaf1a2740afb6fd71b0"
+  integrity sha512-OlwfYEgA2RdboZohpldlvJ1xngOins5d7ejqnIBWr9KaMxsnBqotpptRXTyfNRLnFpqzX6sTDt+X+a+6udnU8g==
+
 rollup-plugin-sourcemaps@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-sourcemaps/-/rollup-plugin-sourcemaps-0.6.2.tgz#1eed5a3e07b833dc14c4cdb1e63b300d340f4a74"

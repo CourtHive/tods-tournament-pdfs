@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { utilities, getDummy } from '../src';
+import { utilities, getDummy } from '../../src';
 
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
