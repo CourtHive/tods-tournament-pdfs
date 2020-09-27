@@ -1,13 +1,13 @@
 import fs from 'fs';
 import pdfmake from 'pdfmake';
-import { getDummy } from '../../src/generators/dummy';
+import { getDummy } from '../test/dummy';
 import {
   drawDefinitionConstants,
   tournamentEngine,
   drawEngine,
   fixtures,
 } from 'tods-competition-factory';
-import { tournamentRecordWithParticipants } from '../tournaments/tournamentWithParticipants';
+import { tournamentRecordWithParticipants } from './primitives/tournamentWithParticipants';
 
 const { SEEDING_ITF } = fixtures;
 const { MAIN, ELIMINATION } = drawDefinitionConstants;
@@ -23,7 +23,7 @@ const fonts = {
   },
 };
 
-const pdfDir = './test/serverSide/pdfs';
+const pdfDir = './src/test/pdfs';
 
 it('can generate dummy documentDefinition', () => {
   const documentDefinition = getDummy();
@@ -36,16 +36,6 @@ it('can generate dummy documentDefinition', () => {
   const filepath = `${pdfDir}/${filename}`;
   pdfDoc.pipe(fs.createWriteStream(filepath));
   pdfDoc.end();
-});
-
-it('can generate participant list', () => {
-  const { tournamentRecord, participants } = tournamentRecordWithParticipants({
-    startDate: '2020-01-01',
-    endDate: '2020-01-06',
-    participantsCount: 32,
-  });
-  expect(participants.length).toEqual(32);
-  expect(tournamentRecord).not.toBeUndefined();
 });
 
 it('can generate elimination draw structure', () => {
@@ -87,5 +77,4 @@ it('can generate elimination draw structure', () => {
 
   const { roundMatchUps } = drawEngine.getRoundMatchUps({ matchUps });
   expect(Object.keys(roundMatchUps).length).toEqual(3);
-  console.log(roundMatchUps);
 });
