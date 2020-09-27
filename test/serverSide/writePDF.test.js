@@ -50,6 +50,8 @@ it('can generate participant list', () => {
 
 it('can generate elimination draw structure', () => {
   const drawSize = 8;
+  const expectedDrawSizeMatchUps = 7;
+
   const { tournamentRecord, participants } = tournamentRecordWithParticipants({
     startDate: '2020-01-01',
     endDate: '2020-01-06',
@@ -80,5 +82,10 @@ it('can generate elimination draw structure', () => {
   drawEngine.automatedPositioning({ structureId: mainStructureId });
 
   const { drawDefinition } = drawEngine.getState();
-  console.log(drawDefinition);
+  const { matchUps } = drawEngine.allDrawMatchUps({ drawDefinition });
+  expect(matchUps.length).toEqual(expectedDrawSizeMatchUps);
+
+  const { roundMatchUps } = drawEngine.getRoundMatchUps({ matchUps });
+  expect(Object.keys(roundMatchUps).length).toEqual(3);
+  console.log(roundMatchUps);
 });

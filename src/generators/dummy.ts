@@ -1,18 +1,18 @@
 const docDefinition = {
   pageOrientation: 'portrait',
   content: [
-    { text: 'Text on Portrait' },
+    { text: 'Portrait View' },
     {
-      text: 'Text on Landscape',
+      text: 'Landscape View',
       pageOrientation: 'landscape',
       pageBreak: 'before',
     },
     {
-      text: 'Text on Landscape 2',
+      text: 'Landscape View 2',
       pageOrientation: 'portrait',
       pageBreak: 'after',
     },
-    { text: 'Text on Portrait 2' },
+    { text: 'Portrait View 2' },
   ],
 };
 
