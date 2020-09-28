@@ -1,5 +1,3 @@
-import fs from 'fs';
-import pdfmake from 'pdfmake';
 import { getDummy } from '../test/dummy';
 import {
   drawDefinitionConstants,
@@ -9,33 +7,15 @@ import {
 } from 'tods-competition-factory';
 import { tournamentRecordWithParticipants } from './primitives/tournamentWithParticipants';
 
+import { writePDF } from './primitives/writePDF';
+
 const { SEEDING_ITF } = fixtures;
 const { MAIN, ELIMINATION } = drawDefinitionConstants;
-
-const roboto = './node_modules/roboto-fontface/fonts/roboto';
-
-const fonts = {
-  Roboto: {
-    normal: `${roboto}/Roboto-Regular.woff`,
-    bold: `${roboto}/Roboto-Medium.woff`,
-    italics: `${roboto}/Roboto-Italic.woff`,
-    bolditalics: `${roboto}/Roboto-MediumItalic.woff`,
-  },
-};
-
-const pdfDir = './src/test/pdfs';
 
 it('can generate dummy documentDefinition', () => {
   const documentDefinition = getDummy();
   expect(documentDefinition).not.toBeUndefined();
-
-  const printer = new pdfmake(fonts);
-  const pdfDoc = printer.createPdfKitDocument(documentDefinition);
-
-  const filename = 'dummy.pdf';
-  const filepath = `${pdfDir}/${filename}`;
-  pdfDoc.pipe(fs.createWriteStream(filepath));
-  pdfDoc.end();
+  writePDF({ documentDefinition, filename: 'dummy.pdf' });
 });
 
 it('can generate elimination draw structure', () => {

@@ -1,0 +1,14 @@
+A4 width: 595.28
+Letter width: 612
+
+const watermark = {
+  text: 'watermark',
+  color: 'blue',
+  opacity: 0.3,
+  bold: true,
+  italics: false,
+};
+
+"In printers' measures, there are 12 points to a pica and 6 picas in an inch. So, 12 x 6 = 72;
+there are 72 points in an inch. And since points and pixels are the same thing, there are 72 pixels in an inch, too.
+So, if you want something on screen to be 4 inches wide: 4 x 72 = 288."

@@ -1,4 +1,5 @@
 import { tournamentRecordWithParticipants } from '../../test/primitives/tournamentWithParticipants';
+import { writePDF } from '../../test/primitives/writePDF';
 import { individualParticipants } from './individualParticipants';
 
 it('can generate participant list', () => {
@@ -10,6 +11,6 @@ it('can generate participant list', () => {
   expect(participants.length).toEqual(32);
   expect(tournamentRecord).not.toBeUndefined();
 
-  const docDefinition = individualParticipants({});
-  console.log({ docDefinition });
+  const { documentDefinition } = individualParticipants({ participants });
+  writePDF({ documentDefinition, filename: 'individualParticipants.pdf' });
 });
