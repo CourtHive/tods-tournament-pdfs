@@ -67,6 +67,7 @@
     "husky": "4.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "roboto-fontface": "^0.10.0",
     "size-limit": "4.6.0",
     "tsdx": "0.14.0",
     "tslib": "2.0.1",
@@ -74,7 +75,6 @@
     "pdfmake": "^0.1.68"
   },
   "dependencies": {
-    "roboto-fontface": "^0.10.0",
     "tods-competition-factory": "^0.1.31"
   }
 }
