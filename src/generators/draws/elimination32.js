@@ -1,1 +1,1 @@
-import { styles } from '../styles/drawTable';
+// import { styles } from '../styles/drawTable';

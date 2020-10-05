@@ -56,5 +56,6 @@ it('can generate elimination draw structure', () => {
   expect(matchUps.length).toEqual(expectedDrawSizeMatchUps);
 
   const { roundMatchUps } = drawEngine.getRoundMatchUps({ matchUps });
+  console.log({ roundMatchUps });
   expect(Object.keys(roundMatchUps).length).toEqual(3);
 });
