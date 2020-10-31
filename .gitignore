@@ -4,7 +4,6 @@
 node_modules
 dist
 scratch
-*.code-workspace
 *.gz
 .docz
 pdfs
