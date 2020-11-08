@@ -1,4 +1,4 @@
-import { getDummy } from '../test/dummy';
+import { getDummy } from './mocks/docDefinitions/dummy';
 import {
   drawDefinitionConstants,
   tournamentEngine,

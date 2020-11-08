@@ -1,6 +1,6 @@
-import { getDummy } from './dummy';
+import { getDummy } from './mocks/docDefinitions/dummy';
 
-it('can generate dummy documentDefinition', () => {
+it.only('can generate dummy documentDefinition', () => {
   const documentDefinition = getDummy();
   expect(documentDefinition).not.toBeUndefined();
 });

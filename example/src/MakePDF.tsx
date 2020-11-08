@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getDummy } from '../../src/test/dummy';
+import { getDummy } from '../../src/test/mocks/docDefinitions/dummy';
 import { utilities } from '../../src';
 
 import pdfMake from 'pdfmake/build/pdfmake';
