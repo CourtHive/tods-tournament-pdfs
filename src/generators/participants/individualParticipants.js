@@ -1,4 +1,4 @@
-import { styles } from '../styles/standardTable';
+import { styles } from '../../styles/standardTable';
 import { standardTable } from '../tables/standardTable';
 
 export function individualParticipants(args) {

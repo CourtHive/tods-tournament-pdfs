@@ -1,6 +1,6 @@
 import { tournamentRecordWithParticipants } from '../../test/primitives/tournamentWithParticipants';
-import { writePDF } from '../../test/primitives/writePDF';
 import { individualParticipants } from './individualParticipants';
+import { writePDF } from '../../test/primitives/writePDF';
 
 it('can generate participant list', () => {
   const { tournamentRecord, participants } = tournamentRecordWithParticipants({
