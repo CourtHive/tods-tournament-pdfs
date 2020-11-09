@@ -1,18 +1,24 @@
+import {
+  BORDER_ALL,
+  BORDER_NONE,
+  BORDER_BOTTOM_RIGHT,
+} from '../constants/borders';
+
 export const styles = {
   side1Content: {
     fontSize: 16,
-    border: [false, true, false, true],
+    border: BORDER_NONE,
   },
   side2Content: {
     fontSize: 16,
-    border: [false, false, true, true],
+    border: BORDER_BOTTOM_RIGHT,
   },
   matchUpContent: {
     fontSize: 16,
-    border: [true, true, true, true],
+    border: BORDER_ALL,
   },
   noContent: {
     fontSize: 16,
-    border: false,
+    border: BORDER_NONE,
   },
 };

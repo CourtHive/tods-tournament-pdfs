@@ -1,4 +1,4 @@
-export const pagesSizes = [
+export const pageSizes = [
   '4A0',
   '2A0',
   'A0',
@@ -50,3 +50,5 @@ export const pagesSizes = [
   'LETTER',
   'TABLOID',
 ];
+
+export default pageSizes;
