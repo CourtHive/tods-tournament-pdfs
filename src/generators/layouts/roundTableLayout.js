@@ -20,14 +20,14 @@ export function roundTableLayout({
     },
     paddingLeft: () => 0,
     paddingRight: () => 0,
-    paddingTop: (rowIndex: number, node: any) => {
+    paddingTop: (rowIndex, node) => {
       return createPaddingTop(rowIndex, node, rowHeight);
     },
     paddingBottom: () => 0,
-    vLineColor: (columnIndex: number) => {
+    vLineColor: columnIndex => {
       return vLineColors[columnIndex] || defaultColor;
     },
-    hLineColor: (rowIndex: number) => {
+    hLineColor: rowIndex => {
       return hLineColors[rowIndex] || defaultColor;
     },
   };
