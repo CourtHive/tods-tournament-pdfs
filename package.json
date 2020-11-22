@@ -64,6 +64,7 @@
     "docz": "2.3.1",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-jest": "24.1.0",
+    "esm": "^3.2.25",
     "husky": "4.3.0",
     "pdfmake": "0.1.68",
     "react": "17.0.1",
@@ -78,6 +79,6 @@
     "date-fns": "^2.16.1",
     "date-fns-timezone": "^0.1.4",
     "timezone-support": "^2.0.2",
-    "tods-competition-factory": "^0.1.31"
+    "tods-competition-factory": "^0.1.104"
   }
 }

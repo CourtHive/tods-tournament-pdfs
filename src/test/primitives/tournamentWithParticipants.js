@@ -15,7 +15,7 @@ export function tournamentRecordWithParticipants({
 }) {
   tournamentEngine.newTournamentRecord({ startDate, endDate });
 
-  const { participants } = tournamentEngine.generateFakeParticipants({
+  const { participants } = tournamentEngine.generateMockParticipants({
     participantsCount,
     matchUpType,
   });

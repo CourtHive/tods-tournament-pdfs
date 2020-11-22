@@ -55,7 +55,10 @@ it('can generate elimination draw structure', () => {
   const { matchUps } = drawEngine.allDrawMatchUps({ drawDefinition });
   expect(matchUps.length).toEqual(expectedDrawSizeMatchUps);
 
-  const { roundMatchUps } = drawEngine.getRoundMatchUps({ matchUps });
-  console.log({ roundMatchUps });
-  expect(Object.keys(roundMatchUps).length).toEqual(3);
+  console.log(Object.keys(drawEngine));
+  const { roundPresentationProfile } = drawEngine.getRoundPresentationProfile({
+    matchUps,
+  });
+  console.log({ roundPresentationProfile });
+  // expect(Object.keys(roundMatchUps).length).toEqual(3);
 });
