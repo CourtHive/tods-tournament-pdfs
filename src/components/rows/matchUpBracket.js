@@ -36,10 +36,6 @@ const fillBorder = ({ bracketProfile, sideNumber }) => {
 const fillSpace = ({ side, bracketProfile }) => {
   const { sideNumber } = side;
   const { fontSize, rows } = bracketProfile;
-  const marginBottom =
-    (sideNumber === 1 && bracketProfile.offsetMargin) ||
-    (sideNumber === 2 && bracketProfile.bracketMargin) ||
-    0;
   return utilities.generateRange(0, rows).map(() => {
     return [
       {
@@ -48,7 +44,7 @@ const fillSpace = ({ side, bracketProfile }) => {
           fontSize,
         },
         border: fillBorder({ bracketProfile, sideNumber }),
-        margin: [0, 0, 0, marginBottom],
+        margin: [0, 0, 0, 0],
         noWrap: true,
       },
     ];

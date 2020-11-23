@@ -10,7 +10,7 @@ import {
   round2Profile as dr2,
 } from './mocks/doublesRoundProfiles';
 
-it('can generate doubles elimination draw', () => {
+it('can generate singles elimination draw', () => {
   const roundProfiles = [sr1, sr2];
   const structure = eliminationStructure({ roundProfiles });
 

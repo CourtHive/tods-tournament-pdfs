@@ -9,30 +9,44 @@ import {
 import { participantConstants } from 'tods-competition-factory';
 const { PAIR } = participantConstants;
 
-const participantBorder = ({ bracketProfile, sideNumber, index }) => {
+const participantBorder = ({ bracketProfile, sideNumber, bottom }) => {
   const { alignment } = bracketProfile;
   const sideBorder = alignment === 'right' ? BORDER_LEFT : BORDER_RIGHT;
   const sideBottomBorder =
     alignment === 'right' ? BORDER_BOTTOM_LEFT : BORDER_BOTTOM_RIGHT;
-  if (index) {
+  if (bottom) {
+    return sideNumber === 1 ? BORDER_BOTTOM : sideBottomBorder;
+  } else {
     // event though BORDER_NONE = [0, 0, 0, 0] it doesn't work here!
     return sideNumber === 1 ? [0, 0, 0, 0] : sideBorder;
-  } else {
-    return sideNumber === 1 ? BORDER_BOTTOM : sideBottomBorder;
   }
 };
 
-const sideParticipant = ({ player, sideNumber, index, bracketProfile }) => ({
-  text: {
-    text: player.name,
-    bold: player.seed,
-    fontSize: bracketProfile.fontSize,
-  },
-  border: participantBorder({ bracketProfile, sideNumber, index }),
-  margin: [0, 0, 0, 1],
-  alignment: bracketProfile.alignment,
-  noWrap: true,
-});
+const sideParticipant = ({
+  participant,
+  sideNumber,
+  top,
+  bottom,
+  bracketProfile,
+}) => {
+  const topMargin =
+    top && sideNumber === 2
+      ? bracketProfile?.bracketMargin || 0
+      : top && sideNumber === 1
+      ? bracketProfile?.offsetMargin || 0
+      : 0;
+  return {
+    text: {
+      text: participant.name,
+      bold: participant.seed,
+      fontSize: bracketProfile.fontSize,
+    },
+    border: participantBorder({ bracketProfile, sideNumber, bottom }),
+    margin: [0, topMargin, 0, 0],
+    alignment: bracketProfile.alignment,
+    noWrap: true,
+  };
+};
 
 export const sideParticipants = ({ side, bracketProfile }) => {
   const { sideNumber } = side;
@@ -42,14 +56,15 @@ export const sideParticipants = ({ side, bracketProfile }) => {
   const participants = doubles
     ? side.participant.individualParticipants
     : [side.participant];
-  const playerCells = participants.map((player, index) => [
+  const participantCells = participants.map((participant, index) => [
     sideParticipant({
-      player,
+      participant,
       sideNumber,
       bracketProfile,
       fontSize,
-      index: doubles ? 1 - index : index,
+      top: index === 0,
+      bottom: (doubles ? 1 - index : index) === 0,
     }),
   ]);
-  return playerCells;
+  return participantCells;
 };
