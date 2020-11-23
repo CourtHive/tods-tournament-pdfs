@@ -1,29 +1,36 @@
 import {
+  BORDER_LEFT,
   BORDER_RIGHT,
   BORDER_BOTTOM,
+  BORDER_BOTTOM_LEFT,
   BORDER_BOTTOM_RIGHT,
 } from '../../constants/borders';
 
 import { participantConstants } from 'tods-competition-factory';
 const { PAIR } = participantConstants;
 
-const participantBorder = (sideNumber, index) => {
+const participantBorder = ({ bracketProfile, sideNumber, index }) => {
+  const { alignment } = bracketProfile;
+  const sideBorder = alignment === 'right' ? BORDER_LEFT : BORDER_RIGHT;
+  const sideBottomBorder =
+    alignment === 'right' ? BORDER_BOTTOM_LEFT : BORDER_BOTTOM_RIGHT;
   if (index) {
     // event though BORDER_NONE = [0, 0, 0, 0] it doesn't work here!
-    return sideNumber === 1 ? [0, 0, 0, 0] : BORDER_RIGHT;
+    return sideNumber === 1 ? [0, 0, 0, 0] : sideBorder;
   } else {
-    return sideNumber === 1 ? BORDER_BOTTOM : BORDER_BOTTOM_RIGHT;
+    return sideNumber === 1 ? BORDER_BOTTOM : sideBottomBorder;
   }
 };
 
-const sideParticipant = ({ player, sideNumber, index, fontSize = 9 }) => ({
+const sideParticipant = ({ player, sideNumber, index, bracketProfile }) => ({
   text: {
     text: player.name,
     bold: player.seed,
-    fontSize,
+    fontSize: bracketProfile.fontSize,
   },
-  border: participantBorder(sideNumber, index),
+  border: participantBorder({ bracketProfile, sideNumber, index }),
   margin: [0, 0, 0, 1],
+  alignment: bracketProfile.alignment,
   noWrap: true,
 });
 
@@ -39,6 +46,7 @@ export const sideParticipants = ({ side, bracketProfile }) => {
     sideParticipant({
       player,
       sideNumber,
+      bracketProfile,
       fontSize,
       index: doubles ? 1 - index : index,
     }),

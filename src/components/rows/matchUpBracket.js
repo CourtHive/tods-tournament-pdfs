@@ -1,9 +1,16 @@
 import { sideParticipants } from './sideParticipants';
-import { BORDER_NONE, BORDER_RIGHT } from '../../constants/borders';
+import {
+  BORDER_LEFT,
+  BORDER_NONE,
+  BORDER_RIGHT,
+} from '../../constants/borders';
 import { utilities } from 'tods-competition-factory';
 
-const detailBorder = sideNumber =>
-  sideNumber === 1 ? BORDER_RIGHT : BORDER_NONE;
+const detailBorder = ({ bracketProfile, sideNumber }) => {
+  const sideBorder =
+    bracketProfile.alignment === 'right' ? BORDER_LEFT : BORDER_RIGHT;
+  return sideNumber === 1 ? sideBorder : BORDER_NONE;
+};
 const positionDetail = ({ side, bracketProfile }) => {
   const { fontSize } = bracketProfile;
   const { sideNumber, sourceDrawPositionRange, sourceMatchUp } = side;
@@ -16,9 +23,15 @@ const positionDetail = ({ side, bracketProfile }) => {
       text: detailText,
       fontSize,
     },
-    border: detailBorder(sideNumber),
+    border: detailBorder({ bracketProfile, sideNumber }),
+    alignment: bracketProfile.alignment,
     noWrap: true,
   };
+};
+const fillBorder = ({ bracketProfile, sideNumber }) => {
+  const sideBorder =
+    bracketProfile.alignment === 'right' ? BORDER_LEFT : BORDER_RIGHT;
+  return sideNumber === 2 ? sideBorder : BORDER_NONE;
 };
 const fillSpace = ({ side, bracketProfile }) => {
   const { sideNumber } = side;
@@ -34,7 +47,7 @@ const fillSpace = ({ side, bracketProfile }) => {
           text: '',
           fontSize,
         },
-        border: sideNumber === 1 ? [0, 0, 0, 0] : [0, 0, 1, 0],
+        border: fillBorder({ bracketProfile, sideNumber }),
         margin: [0, 0, 0, marginBottom],
         noWrap: true,
       },
