@@ -16,10 +16,7 @@ export const roundColumn = roundProfile => ({
   table: {
     widths: ['100%'],
     headerRows: 1,
-    body: [
-      ...roundNameRow(roundProfile.roundName),
-      ...generateRound(roundProfile),
-    ],
+    body: [...roundNameRow(roundProfile), ...generateRound(roundProfile)],
   },
   margin: [0, 0, 4, 0],
   border: [0, 0, 0, 0],

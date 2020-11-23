@@ -46,16 +46,25 @@ it('can generate elimination draw structure', () => {
 
   const { drawDefinition } = drawEngine.getState();
   drawEngine.setParticipants(participants);
-  const { matchUps } = drawEngine.allDrawMatchUps({
+  let { matchUps } = drawEngine.allDrawMatchUps({
     drawDefinition,
     requireParticipants: true,
   });
   expect(matchUps.length).toEqual(expectedDrawSizeMatchUps);
 
+  const matchUpId = matchUps[0].matchUpId;
+  drawEngine.setMatchUpStatus({
+    matchUpId,
+    winningSide: 1,
+    matchUpStatus: 'WALKOVER',
+  });
+  ({ matchUps } = drawEngine.allDrawMatchUps({
+    drawDefinition,
+    requireParticipants: true,
+  }));
+
   const { roundPresentationProfile } = drawEngine.getRoundPresentationProfile({
     matchUps,
   });
   expect(Object.keys(roundPresentationProfile).length).toEqual(3);
-
-  console.log(roundPresentationProfile[0].matchUps[0]);
 });

@@ -1,13 +1,13 @@
 import { BORDER_NONE } from '../../constants/borders';
 
-export const roundNameRow = roundName => [
+export const roundNameRow = roundProfile => [
   [
     {
       text: {
-        text: roundName,
+        text: roundProfile.roundName,
         fontSize: 9,
       },
-      border: roundName ? [0, 0, 0, 1] : BORDER_NONE,
+      border: roundProfile.roundName ? [0, 0, 0, 1] : BORDER_NONE,
       alignment: 'left',
       noWrap: true,
     },
@@ -16,7 +16,7 @@ export const roundNameRow = roundName => [
     {
       text: '',
       border: BORDER_NONE,
-      margin: [0, 0, 0, 13],
+      margin: [0, 0, 0, roundProfile.marginBottom],
     },
   ],
 ];

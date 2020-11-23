@@ -4,6 +4,9 @@ import {
   BORDER_BOTTOM_RIGHT,
 } from '../../constants/borders';
 
+import { participantConstants } from 'tods-competition-factory';
+const { PAIR } = participantConstants;
+
 const participantBorder = (sideNumber, index) => {
   if (index) {
     // event though BORDER_NONE = [0, 0, 0, 0] it doesn't work here!
@@ -27,10 +30,11 @@ const sideParticipant = ({ player, sideNumber, index, fontSize = 9 }) => ({
 export const sideParticipants = ({ side, bracketProfile }) => {
   const { sideNumber } = side;
   const { fontSize } = bracketProfile;
-  const participants = ['INDIVIDUAL', 'TEAM'].includes(side.participantType)
-    ? [side.participant]
-    : side.participant.individualParticipants;
-  const doubles = participants.length === 2;
+  const { participantType } = side.participant;
+  const doubles = participantType === PAIR;
+  const participants = doubles
+    ? side.participant.individualParticipants
+    : [side.participant];
   const playerCells = participants.map((player, index) => [
     sideParticipant({
       player,

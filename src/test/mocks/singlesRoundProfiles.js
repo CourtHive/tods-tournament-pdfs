@@ -1,4 +1,6 @@
-export const roundProfile = {
+export const round1Profile = {
+  fontSize: 9,
+  marginBottom: 13,
   roundName: 'QF',
   bracketProfile: { rows: 1, fontSize: 9 },
   matchUps: [
@@ -9,8 +11,8 @@ export const roundProfile = {
           drawPosition: 1,
           sourceDrawPositionRange: '1-2',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'A1' }, { name: 'A2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'First Person',
           },
         },
         {
@@ -18,8 +20,8 @@ export const roundProfile = {
           drawPosition: 2,
           sourceDrawPositionRange: '3-4',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'B1' }, { name: 'B2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'Second Person',
           },
         },
       ],
@@ -31,8 +33,8 @@ export const roundProfile = {
           drawPosition: 3,
           sourceDrawPositionRange: '5-6',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'C1' }, { name: 'C2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'Third Person',
           },
         },
         {
@@ -40,36 +42,45 @@ export const roundProfile = {
           drawPosition: 4,
           sourceDrawPositionRange: '7-8',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'D1' }, { name: 'D2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'Fourth Person',
           },
         },
       ],
     },
   ],
 };
-export const roundProfile2 = {
+
+export const round2Profile = {
+  fontSize: 9,
+  marginBottom: 13,
   roundName: 'SF',
-  bracketProfile: { rows: 1, fontSize: 9 },
+  bracketProfile: { rows: 1, offsetMargin: 24, bracketMargin: 46, fontSize: 9 },
   matchUps: [
     {
       sides: [
         {
           sideNumber: 1,
           drawPosition: 1,
-          sourceDrawPositionRange: '1-2',
+          sourceDrawPositionRange: '1-4',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'A1' }, { name: 'A2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'First Person',
+          },
+          sourceMatchUp: {
+            score: '6-3 6-3',
           },
         },
         {
           sideNumber: 2,
           drawPosition: 4,
-          sourceDrawPositionRange: '7-8',
+          sourceDrawPositionRange: '5-8',
           participant: {
-            participantType: 'PAIR',
-            individualParticipants: [{ name: 'D1' }, { name: 'D2' }],
+            participantType: 'INDIVIDUAL',
+            name: 'Third Person',
+          },
+          sourceMatchUp: {
+            matchUpStatus: 'WALKOVER',
           },
         },
       ],
