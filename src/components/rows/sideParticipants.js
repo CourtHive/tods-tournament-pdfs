@@ -24,6 +24,7 @@ const participantBorder = ({ bracketProfile, sideNumber, bottom }) => {
 
 const sideParticipant = ({
   participant,
+  roundPosition,
   sideNumber,
   top,
   bottom,
@@ -33,12 +34,12 @@ const sideParticipant = ({
     top && sideNumber === 2
       ? bracketProfile?.bracketMargin || 0
       : top && sideNumber === 1
-      ? bracketProfile?.offsetMargin || 0
+      ? (bracketProfile?.bracketMargin || 0) / (roundPosition === 1 ? 2 : 1)
       : 0;
   return {
     text: {
-      text: participant.name,
-      bold: participant.seed,
+      text: participant?.name,
+      bold: participant?.seed,
       fontSize: bracketProfile.fontSize,
     },
     border: participantBorder({ bracketProfile, sideNumber, bottom }),
@@ -48,10 +49,10 @@ const sideParticipant = ({
   };
 };
 
-export const sideParticipants = ({ side, bracketProfile }) => {
+export const sideParticipants = ({ roundPosition, side, bracketProfile }) => {
   const { sideNumber } = side;
   const { fontSize } = bracketProfile;
-  const { participantType } = side.participant;
+  const { participantType } = side?.participant || bracketProfile;
   const doubles = participantType === PAIR;
   const participants = doubles
     ? side.participant.individualParticipants
@@ -59,6 +60,7 @@ export const sideParticipants = ({ side, bracketProfile }) => {
   const participantCells = participants.map((participant, index) => [
     sideParticipant({
       participant,
+      roundPosition,
       sideNumber,
       bracketProfile,
       fontSize,

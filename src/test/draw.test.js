@@ -4,16 +4,16 @@ import {
   drawEngine,
   fixtures,
 } from 'tods-competition-factory';
+import { eliminationStructure } from '../components/tables/eliminationStructure';
 import { tournamentRecordWithParticipants } from './primitives/tournamentWithParticipants';
-
-// import { writePDF } from './primitives/writePDF';
+import { writePDF } from './primitives/writePDF';
 
 const { SEEDING_ITF } = fixtures;
 const { MAIN, ELIMINATION } = drawDefinitionConstants;
 
 it('can generate elimination draw structure', () => {
-  const drawSize = 8;
-  const expectedDrawSizeMatchUps = 7;
+  const drawSize = 16;
+  const expectedDrawSizeMatchUps = drawSize - 1;
 
   const { tournamentRecord, participants } = tournamentRecordWithParticipants({
     startDate: '2020-01-01',
@@ -66,5 +66,26 @@ it('can generate elimination draw structure', () => {
   const { roundPresentationProfile } = drawEngine.getRoundPresentationProfile({
     matchUps,
   });
-  expect(Object.keys(roundPresentationProfile).length).toEqual(3);
+
+  const roundProfiles = roundPresentationProfile.map((profile, index) => {
+    const bracketProfile = {
+      rows: 0,
+      fontSize: 9,
+      bracketMargin: 10 + index * 32,
+      participantType: 'INDIVIDUAL',
+    };
+    return Object.assign({}, profile, { bracketProfile });
+  });
+  console.log(roundProfiles);
+
+  const structure = eliminationStructure({ roundProfiles });
+  const documentDefinition = {
+    pageSize: 'LETTER',
+    pageOrientation: 'portrait',
+    pageMargins: [22, 22, 22, 22],
+    defaultStyle: { fontSize: 10 },
+    content: [structure],
+  };
+
+  writePDF({ documentDefinition, filename: 'drawTest.pdf' });
 });

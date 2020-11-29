@@ -1,10 +1,14 @@
 export const round1Profile = {
-  fontSize: 9,
   marginBottom: 13,
   roundName: 'QF',
-  bracketProfile: { rows: 0, offsetMargin: 10, bracketMargin: 10, fontSize: 9 },
+  bracketProfile: {
+    rows: 0,
+    bracketMargin: 10,
+    fontSize: 9,
+  },
   matchUps: [
     {
+      roundPosition: 1,
       sides: [
         {
           sideNumber: 1,
@@ -52,12 +56,16 @@ export const round1Profile = {
 };
 
 export const round2Profile = {
-  fontSize: 9,
   marginBottom: 13,
   roundName: 'SF',
-  bracketProfile: { rows: 0, offsetMargin: 26, bracketMargin: 42, fontSize: 9 },
+  bracketProfile: {
+    rows: 0,
+    bracketMargin: 42,
+    fontSize: 9,
+  },
   matchUps: [
     {
+      roundPosition: 1,
       sides: [
         {
           sideNumber: 1,
