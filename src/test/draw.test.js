@@ -86,15 +86,12 @@ it('can generate elimination draw structure', () => {
 
   const scaleFactor = bracketScale[drawSize].scaleFactor;
   const roundProfiles = roundPresentationProfile.map(profile => {
-    const columnFactor = Math.log2(
-      roundPresentationProfile[0].matchUps.length / profile.matchUps.length
-    );
     const bracketProfile = {
       columnMargin: 0,
       participantType: 'INDIVIDUAL',
       rows: bracketScale[drawSize].rows,
       fontSize: bracketScale[drawSize].fontSize,
-      bracketMargin: scaleFactor * multiplier[columnFactor],
+      bracketMargin: scaleFactor * multiplier[profile.columnFactor],
     };
     return Object.assign({}, profile, { bracketProfile });
   });
