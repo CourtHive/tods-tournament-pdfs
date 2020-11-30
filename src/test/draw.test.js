@@ -12,15 +12,16 @@ const { SEEDING_ITF } = fixtures;
 const { MAIN, ELIMINATION } = drawDefinitionConstants;
 
 it('can generate elimination draw structure', () => {
-  const drawSize = 16;
+  const drawSize = 32;
+  const participantsCount = 256;
   const expectedDrawSizeMatchUps = drawSize - 1;
 
   const { tournamentRecord, participants } = tournamentRecordWithParticipants({
     startDate: '2020-01-01',
     endDate: '2020-01-06',
-    participantsCount: 32,
+    participantsCount,
   });
-  expect(participants.length).toEqual(32);
+  expect(participants.length).toEqual(participantsCount);
 
   const mainDrawParticipantIds = participants
     .slice(0, drawSize)
@@ -67,23 +68,40 @@ it('can generate elimination draw structure', () => {
     matchUps,
   });
 
-  const roundProfiles = roundPresentationProfile.map((profile, index) => {
+  const multiplier = [0, 1, 3, 7, 15, 31, 63, 127];
+  const bracketScale = {
+    '2': { fontSize: 9, rows: 3, scaleFactor: 88 },
+    '4': { fontSize: 9, rows: 2, scaleFactor: 44 },
+    '8': { fontSize: 9, rows: 1, scaleFactor: 33 },
+    '16': { fontSize: 9, rows: 1, scaleFactor: 33 },
+    '32': { fontSize: 9, rows: 0, scaleFactor: 22 }, // 2.4444444
+    '64': { fontSize: 4.5, rows: 0, scaleFactor: 11.55 }, // 2.56666666
+    '128': { fontSize: 2, rows: 0, scaleFactor: 5.685 }, // 2.8425
+    '256': { fontSize: 0.8, rows: 0, scaleFactor: 2.875 }, // exact  3.59375
+    // '256': { fontSize: 1, rows: 0, scaleFactor: 3.345 }, // exact
+  };
+
+  const scaleFactor = bracketScale[drawSize].scaleFactor;
+  const roundProfiles = roundPresentationProfile.map(profile => {
+    const columnFactor = Math.log2(
+      roundPresentationProfile[0].matchUps.length / profile.matchUps.length
+    );
     const bracketProfile = {
-      rows: 0,
-      fontSize: 9,
-      bracketMargin: 10 + index * 32,
+      columnMargin: 0,
       participantType: 'INDIVIDUAL',
+      rows: bracketScale[drawSize].rows,
+      fontSize: bracketScale[drawSize].fontSize,
+      bracketMargin: scaleFactor * multiplier[columnFactor],
     };
     return Object.assign({}, profile, { bracketProfile });
   });
-  console.log(roundProfiles);
 
   const structure = eliminationStructure({ roundProfiles });
   const documentDefinition = {
     pageSize: 'LETTER',
     pageOrientation: 'portrait',
     pageMargins: [22, 22, 22, 22],
-    defaultStyle: { fontSize: 10 },
+    defaultStyle: { fontSize: 9 },
     content: [structure],
   };
 
