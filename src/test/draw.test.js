@@ -74,7 +74,10 @@ it('can generate elimination draw structure', () => {
     '4': { fontSize: 9, rows: 2, scaleFactor: 44 },
     '8': { fontSize: 9, rows: 1, scaleFactor: 33 },
     '16': { fontSize: 9, rows: 1, scaleFactor: 33 },
-    '32': { fontSize: 9, rows: 0, scaleFactor: 22 }, // 2.4444444
+    // '32': { fontSize: 9, rows: 0, scaleFactor: 22 },
+    '32': { fontSize: 8, rows: 0, scaleFactor: 19.75 },
+    // '32': { fontSize: 4.5, rows: 1, scaleFactor: 17.35 },
+    // '32': { fontSize: 6, rows: 1, scaleFactor: 22.6 },
     '64': { fontSize: 4.5, rows: 0, scaleFactor: 11.55 }, // 2.56666666
     '128': { fontSize: 2, rows: 0, scaleFactor: 5.685 }, // 2.8425
     '256': { fontSize: 0.8, rows: 0, scaleFactor: 2.875 }, // exact  3.59375
