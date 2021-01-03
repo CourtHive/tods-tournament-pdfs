@@ -25,7 +25,7 @@ export function dummyDocDefinition() {
       eventType: SINGLES,
       participantsCount: 5,
       drawType: ELIMINATION,
-      outcomes: [[1, 2, '6-2 6-1', 1]],
+      outcomes: [[1, 2, '6-2 6-1', 1]], // this will not reliably work since bye can be in different positions
     },
   ];
   const {
