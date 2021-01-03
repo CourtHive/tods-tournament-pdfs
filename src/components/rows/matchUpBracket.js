@@ -16,7 +16,6 @@ const positionDetail = ({ side, bracketProfile }) => {
   const { sideNumber, sourceDrawPositionRange, sourceMatchUp } = side;
   const { matchUpStatus, winningSide, score } = sourceMatchUp || {};
   const scoreString = score && score[`scoreStringSide${winningSide}`];
-  if (score) console.log({ score, scoreString, winningSide });
   const status = matchUpStatus !== 'BYE' && matchUpStatus;
   const detailText = scoreString || status || sourceDrawPositionRange;
   return {
@@ -61,7 +60,6 @@ const getSide = ({ matchUp, sideNumber }) => {
 const bracketSide = ({ matchUp, sideNumber, bracketProfile }) => {
   const { roundPosition } = matchUp;
   const side = getSide({ matchUp, sideNumber });
-  if (!side) console.log(matchUp.sides, sideNumber);
   return [
     ...fillSpace({ side, bracketProfile }),
     ...sideParticipants({ roundPosition, side, bracketProfile }),
