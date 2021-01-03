@@ -5494,6 +5494,18 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
+tods-competition-factory@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/tods-competition-factory/-/tods-competition-factory-0.2.14.tgz#30899438715d792b4a86af245e50aa4e4cfe4be7"
+  integrity sha512-wfV3HCQ1A6qIs8Lcf6MC817RMHJDreSRYHxW1J2ajbdl49r4R3/F2QDBWUnbHg8tYQ7wcWxWw2QOA0CjPLEOJg==
+  dependencies:
+    tods-matchup-format-code "^1.0.7"
+
+tods-matchup-format-code@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/tods-matchup-format-code/-/tods-matchup-format-code-1.0.7.tgz#649de076cfff7c6a2c62359f33274897ec11e9fa"
+  integrity sha512-X02HNISUOWoezoSki4pOMdtlOt5Ftsn4vYb7kvNkT5CHd6FlxwbPjCRd5A1gwtZFJ6D2WlwSLAGjyZUGiIbPXg==
+
 toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"

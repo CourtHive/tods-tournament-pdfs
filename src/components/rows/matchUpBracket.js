@@ -14,10 +14,11 @@ const detailBorder = ({ bracketProfile, sideNumber }) => {
 const positionDetail = ({ side, bracketProfile }) => {
   const { fontSize } = bracketProfile;
   const { sideNumber, sourceDrawPositionRange, sourceMatchUp } = side;
-  const detailText =
-    sourceMatchUp?.score ||
-    sourceMatchUp?.matchUpStatus ||
-    sourceDrawPositionRange;
+  const { matchUpStatus, winningSide, score } = sourceMatchUp || {};
+  const scoreString = score && score[`scoreStringSide${winningSide}`];
+  if (score) console.log({ score, scoreString, winningSide });
+  const status = matchUpStatus !== 'BYE' && matchUpStatus;
+  const detailText = scoreString || status || sourceDrawPositionRange;
   return {
     text: {
       text: detailText,

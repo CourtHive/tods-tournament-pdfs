@@ -79,7 +79,11 @@ export const round2Profile = {
             individualParticipants: [{ name: 'A1' }, { name: 'A2' }],
           },
           sourceMatchUp: {
-            score: '6-3 6-3',
+            score: {
+              scoreStringSide1: '6-3 6-3',
+              scoreStringSide2: '3-6 3-6',
+            },
+            winningSide: 1,
           },
         },
         {

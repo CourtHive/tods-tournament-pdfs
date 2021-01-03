@@ -26,6 +26,7 @@ const sideParticipant = ({
   participant,
   roundPosition,
   sideNumber,
+  bye,
   top,
   bottom,
   bracketProfile,
@@ -36,9 +37,10 @@ const sideParticipant = ({
       : top && sideNumber === 1
       ? (bracketProfile?.bracketMargin || 0) / (roundPosition === 1 ? 2 : 1)
       : 0;
+  const text = bye ? 'BYE' : participant?.name;
   return {
     text: {
-      text: participant?.name,
+      text,
       bold: participant?.seed,
       fontSize: bracketProfile.fontSize,
     },
@@ -50,7 +52,7 @@ const sideParticipant = ({
 };
 
 export const sideParticipants = ({ roundPosition, side, bracketProfile }) => {
-  const { sideNumber } = side;
+  const { sideNumber, bye } = side;
   const { fontSize } = bracketProfile;
   const { participantType } = side?.participant || bracketProfile;
   const doubles = participantType === PAIR;
@@ -64,6 +66,7 @@ export const sideParticipants = ({ roundPosition, side, bracketProfile }) => {
       sideNumber,
       bracketProfile,
       fontSize,
+      bye,
       top: index === 0,
       bottom: (doubles ? 1 - index : index) === 0,
     }),

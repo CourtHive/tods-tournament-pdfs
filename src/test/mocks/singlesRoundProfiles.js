@@ -76,7 +76,11 @@ export const round2Profile = {
             name: 'First Person',
           },
           sourceMatchUp: {
-            score: '6-3 6-3',
+            score: {
+              scoreStringSide1: '6-3 6-3',
+              scoreStringSide2: '3-6 3-6',
+            },
+            winningSide: 2,
           },
         },
         {

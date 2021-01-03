@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getDummy } from '../../src/test/mocks/docDefinitions/dummy';
+import { dummyDocDefinition } from '../../src/test/primitives/dummyDocDefinition';
 import { utilities } from '../../src';
 
 import pdfMake from 'pdfmake/build/pdfmake';
@@ -39,7 +39,7 @@ const saveBlob = (blob, fileName) => {
 };
 
 export const MakePDF = () => {
-  const docDefinition = getDummy();
+  const docDefinition = dummyDocDefinition();
   const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 
   pdfDocGenerator.getBase64((data: any) => {
