@@ -28,6 +28,7 @@ it('can generate elimination draw structure', () => {
     .map(participant => participant.participantId);
 
   tournamentEngine.setState(tournamentRecord);
+
   drawEngine.newDrawDefinition();
   drawEngine.attachPolicy({ policyDefinition: SEEDING_ITF });
   drawEngine.setStageDrawSize({ stage: MAIN, drawSize });

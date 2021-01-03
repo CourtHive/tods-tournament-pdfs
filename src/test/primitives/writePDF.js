@@ -14,6 +14,10 @@ const fonts = {
   },
 };
 
+if (!fs.existsSync(pdfDir)) {
+  fs.mkdirSync(pdfDir);
+}
+
 export function writePDF({ documentDefinition, filename }) {
   const printer = new pdfmake(fonts);
   const pdfDoc = printer.createPdfKitDocument(documentDefinition);
