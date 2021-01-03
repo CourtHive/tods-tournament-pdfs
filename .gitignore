@@ -6,5 +6,4 @@ dist
 scratch
 *.gz
 .docz
-pdfs
-.pdf
+*.pdf

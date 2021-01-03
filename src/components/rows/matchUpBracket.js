@@ -52,14 +52,18 @@ const fillSpace = ({ side, bracketProfile }) => {
 };
 
 const getSide = ({ matchUp, sideNumber }) => {
-  return matchUp.sides.find(side => side.sideNumber === sideNumber);
+  return (
+    matchUp.sides.find(side => side.sideNumber === sideNumber) || { sideNumber }
+  );
 };
 
 const bracketSide = ({ matchUp, sideNumber, bracketProfile }) => {
+  const { roundPosition } = matchUp;
   const side = getSide({ matchUp, sideNumber });
+  if (!side) console.log(matchUp.sides, sideNumber);
   return [
     ...fillSpace({ side, bracketProfile }),
-    ...sideParticipants({ side, bracketProfile }),
+    ...sideParticipants({ roundPosition, side, bracketProfile }),
     [positionDetail({ side, bracketProfile })],
   ];
 };

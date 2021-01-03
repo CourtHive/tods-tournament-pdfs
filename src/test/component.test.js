@@ -13,6 +13,7 @@ import {
 it('can generate singles elimination draw', () => {
   const roundProfiles = [sr1, sr2];
   const structure = eliminationStructure({ roundProfiles });
+  expect(structure).not.toBeUndefined();
 
   const documentDefinition = {
     pageSize: 'LETTER',
@@ -22,13 +23,13 @@ it('can generate singles elimination draw', () => {
     content: [structure],
   };
 
-  expect(documentDefinition).not.toBeUndefined();
   writePDF({ documentDefinition, filename: 'singlesMainDraw.pdf' });
 });
 
 it('can generate doubles elimination draw', () => {
   const roundProfiles = [dr1, dr2];
   const structure = eliminationStructure({ roundProfiles });
+  expect(structure).not.toBeUndefined();
 
   const documentDefinition = {
     pageSize: 'LETTER',
@@ -38,6 +39,5 @@ it('can generate doubles elimination draw', () => {
     content: [structure],
   };
 
-  expect(documentDefinition).not.toBeUndefined();
   writePDF({ documentDefinition, filename: 'doublesMainDraw.pdf' });
 });
