@@ -2,6 +2,8 @@
 
 Generates PDFs for Draw Sheets, Sign-in sheets, and schedules.
 
+[Online Documentation](https://courthive.github.io/tods-tournament-pdfs)
+
 ## Installation
 
 ```shell
@@ -27,5 +29,3 @@ There is one example of calling PDF generation method from React.
 ```js
 yarn start
 ```
-
-[Online Documentation](https://courthive.github.io/tods-tournament-pdfs)
