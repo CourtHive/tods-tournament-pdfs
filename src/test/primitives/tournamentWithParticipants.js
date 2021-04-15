@@ -2,6 +2,7 @@ import {
   tournamentEngine,
   resultConstants,
   eventConstants,
+  mocksEngine,
 } from 'tods-competition-factory';
 
 const { SUCCESS } = resultConstants;
@@ -15,7 +16,7 @@ export function tournamentRecordWithParticipants({
 }) {
   tournamentEngine.newTournamentRecord({ startDate, endDate });
 
-  const { participants } = tournamentEngine.generateMockParticipants({
+  const { participants } = mocksEngine.generateParticipants({
     participantsCount,
     matchUpType,
   });
