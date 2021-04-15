@@ -1,6 +1,9 @@
-# TODS Tournament PDFs
+---
+title: Getting Started
+slug: /
+---
 
-Generates PDFs for Draw Sheets, Sign-in sheets, and schedules.
+TODS Tournament PDFs generates PDFs for Draw Sheets, Sign-in sheets, and schedules.
 
 ## Installation
 
@@ -27,5 +30,3 @@ There is one example of calling PDF generation method from React.
 ```js
 yarn start
 ```
-
-[Online Documentation](https://courthive.github.io/tods-tournament-pdfs)
