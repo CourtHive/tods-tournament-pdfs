@@ -50,7 +50,7 @@
   "module": "dist/tods-tournament-pdfs.esm.js",
   "devDependencies": {
     "@babel/preset-typescript": "7.13.0",
-    "@types/jest": "26.0.22",
+    "@types/jest": "26.0.23",
     "@types/react-dom": "16.9.12",
     "eslint-config-prettier": "8.2.0",
     "eslint-plugin-jest": "24.3.5",
