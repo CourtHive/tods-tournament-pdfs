@@ -5,6 +5,7 @@ import {
   fixtures,
 } from 'tods-competition-factory';
 import { eliminationStructure } from '../components/tables/eliminationStructure';
+import { getRoundPresentationProfile } from '../generators/roundProfile';
 import { tournamentRecordWithParticipants } from './primitives/tournamentWithParticipants';
 import { writePDF } from './primitives/writePDF';
 
@@ -65,7 +66,7 @@ it('can generate elimination draw structure', () => {
     requireParticipants: true,
   }));
 
-  const { roundPresentationProfile } = drawEngine.getRoundPresentationProfile({
+  const { roundPresentationProfile } = getRoundPresentationProfile({
     matchUps,
   });
 

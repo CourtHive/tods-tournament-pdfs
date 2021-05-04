@@ -1,6 +1,5 @@
 import {
   mocksEngine,
-  drawEngine,
   tournamentEngine,
   drawDefinitionConstants,
   eventConstants,
@@ -8,6 +7,7 @@ import {
 } from 'tods-competition-factory';
 
 import { eliminationStructure } from '../../components/tables/eliminationStructure';
+import { getRoundPresentationProfile } from '../../generators/roundProfile';
 
 const { ELIMINATION } = drawDefinitionConstants;
 const { SINGLES } = eventConstants;
@@ -44,7 +44,7 @@ export function dummyDocDefinition() {
     drawId,
   });
 
-  const { roundPresentationProfile } = drawEngine.getRoundPresentationProfile({
+  const { roundPresentationProfile } = getRoundPresentationProfile({
     matchUps,
   });
 

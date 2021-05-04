@@ -1604,9 +1604,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001135:
-  version "1.0.30001137"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001137.tgz#6f0127b1d3788742561a25af3607a17fc778b803"
-  integrity sha512-54xKQZTqZrKVHmVz0+UvdZR6kQc7pJDgfhsMYDG19ID1BWoNnDMFm5Q3uSBSU401pBvKYMsHAt9qhEDcxmk8aw==
+  version "1.0.30001220"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001220.tgz"
+  integrity sha512-pjC2T4DIDyGAKTL4dMvGUQaMUHRmhvPpAgNNTa14jaBWHu+bLQgvpFqElxh9L4829Fdx0PlKiMp3wnYldRtECA==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -5500,17 +5500,17 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-tods-competition-factory@^0.5.1:
-  version "0.5.61"
-  resolved "https://registry.yarnpkg.com/tods-competition-factory/-/tods-competition-factory-0.5.61.tgz#68b65f399bf745b0eb022abcb21ad6ca17035fc7"
-  integrity sha512-QWtlBkJ97zNN/lB8zpPeF4NyUhgUoBEFnUHstMvm78GGcn34t0a3Tw8a1zCJkIHt6oc0QcthxOg5jf7wBprG5w==
+tods-competition-factory@0.5.83:
+  version "0.5.83"
+  resolved "https://registry.yarnpkg.com/tods-competition-factory/-/tods-competition-factory-0.5.83.tgz#9ccc0db2d4a970724f52d645a8de30e9a762ca23"
+  integrity sha512-lO4yXsLkF1MQb2pT2mscksfqepnuqRo2NO87xbf1n+m3LEpUwkowk9AaKRd5mkX3FjXe4jz2RLsZ9xeSgwp8Vw==
   dependencies:
-    tods-matchup-format-code "^1.0.7"
+    tods-matchup-format-code "1.1.2"
 
-tods-matchup-format-code@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/tods-matchup-format-code/-/tods-matchup-format-code-1.0.7.tgz#649de076cfff7c6a2c62359f33274897ec11e9fa"
-  integrity sha512-X02HNISUOWoezoSki4pOMdtlOt5Ftsn4vYb7kvNkT5CHd6FlxwbPjCRd5A1gwtZFJ6D2WlwSLAGjyZUGiIbPXg==
+tods-matchup-format-code@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/tods-matchup-format-code/-/tods-matchup-format-code-1.1.2.tgz#32c45b2bea6fc2aa5f7dd3ff362f27c02e31bb5b"
+  integrity sha512-73VIP+WnSTvPnDwfFLNFvWIINu4VtJbjEZERL/kBMv17MO1i9gQlWiq4C14Ph+igMLwuolitXutsomCCsn9Q2A==
 
 toidentifier@1.0.0:
   version "1.0.0"
