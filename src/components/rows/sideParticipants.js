@@ -37,7 +37,7 @@ const sideParticipant = ({
       : top && sideNumber === 1
       ? (bracketProfile?.bracketMargin || 0) / (roundPosition === 1 ? 2 : 1)
       : 0;
-  const text = bye ? 'BYE' : participant?.name;
+  const text = bye ? 'BYE' : participant?.participantName;
   return {
     text: {
       text,
