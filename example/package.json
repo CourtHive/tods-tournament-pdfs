@@ -10,7 +10,7 @@
   "dependencies": {
     "material-ui": "^0.20.2",
     "react-app-polyfill": "^2.0.0",
-    "tods-competition-factory": "0.6.47"
+    "tods-competition-factory": "0.6.56"
   },
   "alias": {
     "react": "../node_modules/react",
