@@ -76,6 +76,6 @@
     "date-fns": "^2.16.1",
     "date-fns-timezone": "^0.1.4",
     "timezone-support": "^2.0.2",
-    "tods-competition-factory": "0.7.4"
+    "tods-competition-factory": "0.512.8"
   }
 }
