@@ -57,7 +57,7 @@
     "esm": "3.2.25",
     "husky": "7.0.0",
     "np": "7.5.0",
-    "pdfmake": "0.1.71",
+    "pdfmake": "0.2.14",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "roboto-fontface": "0.10.0",
